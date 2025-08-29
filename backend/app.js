@@ -85,6 +85,7 @@ app.post("/opinions", async (req, res) => {
 app.post("/opinions/:id/upvote", async (req, res) => {
   const { id } = req.params;
   await new Promise((resolve) => setTimeout(resolve, 1000));
+  // return res.status(500).end();   // returns the value to initial state and doesn't stay on new one
   try {
     const opinion = await upvoteOpinion(Number(id));
     if (!opinion) {
